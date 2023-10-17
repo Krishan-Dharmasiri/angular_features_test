@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Contact } from 'src/app/interfaces/contact';
 
 @Component({
   selector: 'contact-form',
@@ -6,20 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
-  name : string = "";
-  comment : string = "";
+  
   myContact = <Contact>{};
 
   onSubmit(){
-    console.log('Name : ' + this.name)
-    console.log('Comment : '  , this.comment);
-    this.myContact.name = this.name;
-    this.myContact.comment = this.comment;
     console.log(this.myContact);
   }
 }
 
-interface Contact{
-  name : string,
-  comment : string
-}
