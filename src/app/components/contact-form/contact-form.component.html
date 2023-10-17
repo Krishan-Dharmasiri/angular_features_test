@@ -1,13 +1,31 @@
-<form>
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input required ngModel #firstName="ngModel" name="firstName" id="firstName" type="text" class="form-control">
-        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First Name Required.</div>
-    </div>
-    <div class="form-group">
-        <label for="comment">Comment</label>
-        <textarea required ngModel #comment="ngModel" name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
-        <div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">Comment Required</div>
-    </div>
-    <button [ngClass]="{'disabled' : !firstName.valid || !comment.valid }" (click)="onSubmit()" class="btn btn-primary">Submit</button>
-</form>
+<div class="col-md-6">
+    <form #contactForm="ngForm">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input required ngModel #firstName="ngModel" name="firstName" id="firstName" type="text" class="form-control">
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First Name Required.</div>
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea required ngModel #comment="ngModel" name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+            <div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">Comment Required</div>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ngModel name="isSubscribed"> Subscribe to the mailing list.
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="language"></label>
+            <select ngModel name="language" id="language">
+                <option value="-1" selected>Select here.</option>  
+                <option *ngFor="let l of languages" [value]="l.id">{{l.name}}</option>      
+            </select>
+        </div>
+        <button [disabled]="!contactForm.valid" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+        <p>
+            {{contactForm.value | json}}
+        </p>
+    </form>
+</div>
+
