@@ -16,6 +16,12 @@ export class ContactFormComponent {
     {id:4, name : 'Python'}
   ]
 
+  editors = [
+    {id : 1, name : 'VS Code'},
+    {id : 2, name : 'VS 2022'},
+    {id : 3, name : 'Jet Brains'}
+  ]
+
   onSubmit(){
     console.log(this.myContact);
   }

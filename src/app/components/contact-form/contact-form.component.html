@@ -22,6 +22,12 @@
                 <option *ngFor="let l of languages" [value]="l.id">{{l.name}}</option>      
             </select>
         </div>
+        <div *ngFor="let e of editors" class="radio">
+            <label>
+                <input ngModel type="radio" name="codeEditor" [value]="e.id">
+                {{e.name}}
+            </label>
+        </div>
         <button [disabled]="!contactForm.valid" (click)="onSubmit()" class="btn btn-primary">Submit</button>
         <p>
             {{contactForm.value | json}}
