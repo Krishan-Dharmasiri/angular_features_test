@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsernameValidators } from 'src/app/common/validators/username.validators';
 
 @Component({
   selector: 'signup-form',
@@ -8,7 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupFormComponent {
   signupForm = new FormGroup({
-    username : new FormControl('', [Validators.required, Validators.minLength(4)]),
+    username : new FormControl('', 
+                  [Validators.required, Validators.minLength(4), UsernameValidators.cannotContainSpace]),
     password : new FormControl('', Validators.required)
   })
 
