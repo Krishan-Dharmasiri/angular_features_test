@@ -3,6 +3,7 @@
         <div class="form-group">
             <label for="username">Username</label>
             <input formControlName="username" type="text" name="username" id="username" class="form-control">
+            <div *ngIf="username?.pending">Checking for uniquness...</div>
             <div *ngIf="username && username.touched && username.invalid" class="alert alert-danger">
                 <div *ngIf="username.errors?.['required']">User Name Required.</div>
                 <div *ngIf="username.errors?.['minlength']">User Name must be at least {{username.errors?.['minlength'].requiredLength}}.</div>
