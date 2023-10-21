@@ -1,5 +1,8 @@
 <div class="col-md-6">
-    <form [formGroup]="signupForm">
+    <form [formGroup]="signupForm" (ngSubmit)="onSignupFormSubmit()">
+        <div *ngIf="signupForm?.errors" class="alert alert-danger">
+            Username or Password is invalid.
+        </div>
         <div class="form-group">
             <label for="username">Username</label>
             <input formControlName="username" type="text" name="username" id="username" class="form-control">
@@ -16,7 +19,16 @@
             <input formControlName="password" type="password" name="password" id="password" class="form-control">
             <div *ngIf="password && password.touched && !password.valid" class="alert alert-danger">Password Required.</div>
         </div>
-        <button (click)="onSignupFormSubmit()" class="btn btn-primary" type="submit">Sign Up</button>
+        <div formGroupName="account">
+            <div class="form-group">
+                <label for="codename">Code Name</label>
+                <input formControlName="codename" type="text" name="codename" id="codename" class="form-control">
+                <div *ngIf="codename && codename.invalid && (codename.touched || codename.dirty)" class="alert alert-danger">
+                    <div *ngIf="codename.errors?.['required']">Codename is required.</div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Sign Up</button>
     </form>
 </div>
 

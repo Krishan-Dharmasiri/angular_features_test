@@ -14,7 +14,11 @@ export class SignupFormComponent {
                     UsernameValidators.cannotContainSpace                    
                   ], 
                   UsernameValidators.shouldBeUnique),
-    password : new FormControl('', Validators.required)
+    password : new FormControl('', Validators.required),
+    account  : new FormGroup({
+      codename : new FormControl('', [Validators.required])
+      
+    })
   })
 
   get username(){
@@ -25,8 +29,14 @@ export class SignupFormComponent {
     return this.signupForm.get('password');
   }
 
+  get codename(){
+    return this.signupForm.get('account.codename');
+  }
+
   onSignupFormSubmit(){
-   console.log(this.username);
+    this.signupForm.setErrors(
+      {InvalidLogin : true}
+    );
   }
 
 }
