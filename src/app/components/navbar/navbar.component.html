@@ -7,7 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">          
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active current" routerLink="followers">Followers</a>
+            <a class="nav-link" routerLinkActive="active current" 
+                                [routerLink]="['/followers', 'kmd']"
+                                [queryParams]="{page:1, order : 'newest'}"
+                                >Followers</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active current" routerLink="posts">Posts</a>

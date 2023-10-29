@@ -4,12 +4,14 @@ import { HomeComponent } from './components/home/home.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { GithubProfileComponent } from './components/github-profile/github-profile.component';
+import { GithubComponent } from './components/github/github.component';
 
 const routes: Routes = [
   {path : '', component : HomeComponent},
   {path : 'home', component : HomeComponent},
   {path : 'posts', component : PostsComponent},
-  {path : 'profile/:username', component : GithubProfileComponent},
+  {path : 'followers/:id/:username', component : GithubProfileComponent},
+  {path : 'followers/:user', component : GithubComponent},
   {path : '**', component : NotfoundComponent}
 ];
 

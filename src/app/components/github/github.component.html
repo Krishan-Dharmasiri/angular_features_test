@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let follower of followers" class="col-md-6">
+            <img style="width:40%; float:left;" [src]="follower.avatar_url" />        
+            <div >
+                <p>User name : <a [routerLink]="['/followers', follower.id, follower.login]">{{follower.login}}</a> </p>
+                <p>URL : <a [href]="follower.html_url">{{follower.html_url}}</a> </p>                 
+            </div> 
+        </div>
+    </div>    
+</div>
