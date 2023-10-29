@@ -1,13 +1,13 @@
 <div class="col-md-8">
     <div class="form-group">
         <label for="newpost" ></label>
-        <input #newpost (keyup.enter)="createPost(newpost.value)" name="newpost" id="newpost" type="text" class="form-control">
+        <input #newpost (keyup.enter)="createPost(newpost)" name="newpost" id="newpost" type="text" class="form-control">
     </div>
     <h2>Posts</h2>
-    <ul class="list-group">
+    <ul class="list-group">        
         <li *ngFor="let post of posts" class="list-group-item">
-            {{post.title}}
-        </li>
+           <button (click)="deletePost(post)" class="btn btn-warning btn-sm">Delete</button> {{post.title}}
+        </li>        
     </ul>
 </div>
 
