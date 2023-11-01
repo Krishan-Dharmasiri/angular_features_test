@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { GithubProfileComponent } from './components/github-profile/github-profile.component';
 import { GithubComponent } from './components/github/github.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GithubComponent } from './components/github/github.component';
     HomeComponent,
     NotfoundComponent,
     GithubProfileComponent,
-    GithubComponent
+    GithubComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
