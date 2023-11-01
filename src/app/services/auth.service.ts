@@ -17,4 +17,25 @@ export class AuthService {
     else
       return of(false).pipe(delay(1000));
   }
+
+  logout(){
+    // no token in the local storage means, user is not logged in 
+    // so to log the user out, all you have to do is to remove the token from the local storage
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn(){
+    let token = localStorage.getItem('token');
+    // we should check both the token exists and if so it is valid ( not expired)
+    if(token === null)
+      return false;
+    else
+      return true;
+  }
+
+  getCurrentUser(){
+    // get the token form the local storage
+    // Decode it
+    // get the details like, Id, Name, Email, and Roles array
+  }
 }

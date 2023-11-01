@@ -6,11 +6,14 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { GithubProfileComponent } from './components/github-profile/github-profile.component';
 import { GithubComponent } from './components/github/github.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   {path : '', component : LoginComponent},
   {path : 'login', component : LoginComponent},
   {path : 'home', component : HomeComponent},
+  {path : 'admin', component : AdminComponent, canActivate : [AuthGuard]},
   {path : 'posts', component : PostsComponent},
   {path : 'followers/:id/:username', component : GithubProfileComponent},
   {path : 'followers/:user', component : GithubComponent},

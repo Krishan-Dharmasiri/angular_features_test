@@ -17,6 +17,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { GithubProfileComponent } from './components/github-profile/github-profile.component';
 import { GithubComponent } from './components/github/github.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     NotfoundComponent,
     GithubProfileComponent,
     GithubComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
